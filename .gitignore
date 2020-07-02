@@ -1,0 +1,10 @@
+build
+dist
+*.egg-info
+
+/zyenpheng.dict.yaml
+/src/ToMiddleChinese/dict/dict.big.txt
+/src/ToMiddleChinese/dict/HKVariantsRev.txt
+/src/ToMiddleChinese/dict/HKVariantsRevPhrases.txt
+/src/ToMiddleChinese/dict/zyenpheng.dict.*.yaml
+/zyenpheng.dict.simple.yaml
