@@ -26,9 +26,10 @@ jobs:
         python -m pip install --upgrade pip
         python preprocess.py
         pip install setuptools wheel twine
+        ./preprocess2.sh
         npm init -y
         npm install --save qieyun@0.7.2
-        node preprocess2.js
+        node preprocess3.js
     - name: Build and publish
       env:
         TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
