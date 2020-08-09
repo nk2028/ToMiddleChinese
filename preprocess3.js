@@ -1,13 +1,13 @@
 const fs = require('fs')
 const Qieyun = require('qieyun');
-const kuxyonh = require('./kuxyonh.js');
+const kyonh = require('./kyonh.js');
 const unt = require('./unt.js');
 
 __d = {};
 
 for (let 小韻號 = 1; 小韻號 <= 3874; 小韻號++) {
 	const 音韻地位 = Qieyun.get音韻地位(小韻號);
-	__d[kuxyonh(音韻地位)] = 音韻地位;
+	__d[kyonh(音韻地位)] = 音韻地位;
 }
 
 function rev_inner(s) {
@@ -22,7 +22,7 @@ function 音韻描述2音韻地位(音韻描述) {
 	return new Qieyun.音韻地位(arr[1], arr[2], arr[3], arr[4] || null, arr[5], arr[6]);
 }
 
-function kuxyonh2音韻描述(s) {
+function kyonh2音韻描述(s) {
 	let res = rev_inner(s);
 	if (res) {
 		return res;
@@ -50,7 +50,7 @@ function kuxyonh2音韻描述(s) {
 }
 
 var logger_qimyonhmieuzsjyt = fs.createWriteStream('src/ToMiddleChinese/dict/zyenpheng.dict.qimyonhmieuzsjyt.yaml');
-var logger_kuxyonh = fs.createWriteStream('src/ToMiddleChinese/dict/zyenpheng.dict.kuxyonh.yaml');
+var logger_kyonh = fs.createWriteStream('src/ToMiddleChinese/dict/zyenpheng.dict.kyonh.yaml');
 var logger_unt = fs.createWriteStream('src/ToMiddleChinese/dict/zyenpheng.dict.unt.yaml');
 
 var lineReader = require('readline').createInterface({
@@ -59,12 +59,12 @@ var lineReader = require('readline').createInterface({
 
 lineReader.on('line', function (line) {
 	let [字, 羅馬字們] = line.split('\t');
-	羅馬字們 = 羅馬字們.split(' ').map(kuxyonh2音韻描述);
+	羅馬字們 = 羅馬字們.split(' ').map(kyonh2音韻描述);
 	if (!羅馬字們.some(x => !x)) /* Sucessfully converted */ {
 		logger_qimyonhmieuzsjyt.write(字 + '\t' + 羅馬字們.join(' ') + '\n');
 
-		let x = 羅馬字們.map(音韻描述2音韻地位).map(kuxyonh);
-		logger_kuxyonh.write(字 + '\t' + x.join(' ') + '\n');
+		let x = 羅馬字們.map(音韻描述2音韻地位).map(kyonh);
+		logger_kyonh.write(字 + '\t' + x.join(' ') + '\n');
 
 		x = 羅馬字們.map(音韻描述2音韻地位).map(unt);
 		logger_unt.write(字 + '\t' + x.join(' ') + '\n');

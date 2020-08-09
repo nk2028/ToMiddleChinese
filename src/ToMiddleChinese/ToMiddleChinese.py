@@ -72,13 +72,13 @@ def get_middle_chinese(s, t):
 	return ''.join(l)
 
 dict_qimyonhmieuzsjyt = load_dict('qimyonhmieuzsjyt')
-dict_kuxyonh = load_dict('kuxyonh')
+dict_kyonh = load_dict('kyonh')
 dict_unt = load_dict('unt')
 
 get_qimyonhmieuzsjyt_list = lambda s: get_middle_chinese_list(s, dict_qimyonhmieuzsjyt)
-get_kuxyonh_list = lambda s: get_middle_chinese_list(s, dict_kuxyonh)
+get_kyonh_list = lambda s: get_middle_chinese_list(s, dict_kyonh)
 get_unt_list = lambda s: get_middle_chinese_list(s, dict_unt)
 
 get_qimyonhmieuzsjyt = lambda s: get_middle_chinese(s, dict_qimyonhmieuzsjyt)
-get_kuxyonh = lambda s: get_middle_chinese(s, dict_kuxyonh)
+get_kyonh = lambda s: get_middle_chinese(s, dict_kyonh)
 get_unt = lambda s: get_middle_chinese(s, dict_unt)

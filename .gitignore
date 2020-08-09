@@ -2,7 +2,7 @@ build
 dist
 *.egg-info
 
-/kuxyonh.js
+/kyonh.js
 /unt.js
 /zyenpheng.dict.yaml
 /src/ToMiddleChinese/dict/dict.big.txt

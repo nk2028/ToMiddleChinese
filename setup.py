@@ -17,13 +17,12 @@ with open(path.join(here, 'src/ToMiddleChinese/version.py')) as f:
 setup(
 	name='ToMiddleChinese',
 	version=__version__,
-	description='中古漢語自動標註工具 | Middle Chinese Pronunciation Automatic Labeling Tool',
+	description='中古漢語自動標註工具 Middle Chinese Pronunciation Automatic Labeling Tool',
 	long_description=long_description,
 	long_description_content_type='text/markdown',
-	url='https://github.com/sgalal/ToMiddleChinese',
-	author='sgalal',
-	author_email='sgalal.me@outlook.com',
-	license='Other',
+	url='https://github.com/nk2028/ToMiddleChinese',
+	author='Ngiox Khyen 2028 Project',
+	author_email='support@mail.nk2028.shn.hk',
 	classifiers=[
 		'Development Status :: 4 - Beta',
 		'Intended Audience :: Developers',
@@ -32,7 +31,7 @@ setup(
 		'Natural Language :: Cantonese',
 		'Natural Language :: Chinese (Simplified)',
 		'Natural Language :: Chinese (Traditional)',
-		'License :: Other/Proprietary License',
+		'License :: CC0 1.0 Universal (CC0 1.0) Public Domain Dedication',
 		'Programming Language :: Python :: 3',
 		'Programming Language :: Python :: 3.5',
 		'Programming Language :: Python :: 3.6',
@@ -51,8 +50,8 @@ setup(
 	install_requires=['pygtrie', 'opencc!=1.1.1', 'jieba'],
 	entry_points={},
 	project_urls={
-		'Bug Reports': 'https://github.com/sgalal/ToMiddleChinese/issues',
-		'Source': 'https://github.com/sgalal/ToMiddleChinese',
+		'Bug Reports': 'https://github.com/nk2028/ToMiddleChinese/issues',
+		'Source': 'https://github.com/nk2028/ToMiddleChinese',
 	},
 	zip_safe=False
 )
