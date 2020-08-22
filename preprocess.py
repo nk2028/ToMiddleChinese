@@ -12,8 +12,8 @@ def download_file_if_not_exist(url, file_path):
 
 download_file_if_not_exist('https://raw.githubusercontent.com/biopolyhedron/rime-middle-chinese/542245ed087988b28e1e94a2a3d352865fb8e963/zyenpheng.dict.yaml', 'zyenpheng.dict.yaml')
 download_file_if_not_exist('https://raw.githubusercontent.com/fxsjy/jieba/master/extra_dict/dict.txt.big', 'src/ToMiddleChinese/dict/dict.big.txt')
-download_file_if_not_exist('https://cdn.jsdelivr.net/npm/opencc-data@1.0.1/data/HKVariantsRev.txt', 'src/ToMiddleChinese/dict/HKVariantsRev.txt')
-download_file_if_not_exist('https://cdn.jsdelivr.net/npm/opencc-data@1.0.1/data/HKVariantsRevPhrases.txt', 'src/ToMiddleChinese/dict/HKVariantsRevPhrases.txt')
+download_file_if_not_exist('https://cdn.jsdelivr.net/npm/opencc-data@1.0.3/data/HKVariantsRev.txt', 'src/ToMiddleChinese/dict/HKVariantsRev.txt')
+download_file_if_not_exist('https://cdn.jsdelivr.net/npm/opencc-data@1.0.3/data/HKVariantsRevPhrases.txt', 'src/ToMiddleChinese/dict/HKVariantsRevPhrases.txt')
 
 def freq_str_to_float(s):
 	'''Convert frequency data in the dictionary file to float.
