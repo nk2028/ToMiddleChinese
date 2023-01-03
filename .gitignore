@@ -1,9 +1,8 @@
+/node_modules/
 build
 dist
 *.egg-info
 
-/kyonh.js
-/unt.js
 /zyenpheng.dict.yaml
 /src/ToMiddleChinese/dict/dict.big.txt
 /src/ToMiddleChinese/dict/HKVariantsRev.txt

@@ -1,0 +1,11 @@
+{
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "postinstall": "python preprocess.py && node preprocess.js"
+  },
+  "devDependencies": {
+    "qieyun": "^0.13.5",
+    "qieyun-examples": "^20220826.0.2"
+  }
+}
