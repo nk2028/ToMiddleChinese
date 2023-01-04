@@ -19,6 +19,8 @@ Functions:
 - `ToMiddleChinese.get_qimyonhmieuzsjyt_list`
 - `ToMiddleChinese.get_kyonh_list` (Koxyonh Romanization)
 - `ToMiddleChinese.get_unt_list` (unt’s Reading Pronunciation of _Qieyun_)
+- `ToMiddleChinese.get_tupa_list`
 - `ToMiddleChinese.get_qimyonhmieuzsjyt`
 - `ToMiddleChinese.get_kyonh`
 - `ToMiddleChinese.get_unt`
+- `ToMiddleChinese.get_tupa`
