@@ -22,7 +22,7 @@ cc_hk = OpenCC(path.join(here, 'dict', 'hk2t.json'))  # Wait for https://github.
 
 def load_dict(name):
 	t = pygtrie.CharTrie()
-	with open(path.join(here, 'dict', 'zyenpheng.dict.' + name + '.yaml'), encoding='utf-8') as f:
+	with open(path.join(here, 'dict', name + '.dict.yaml'), encoding='utf-8') as f:
 		for line in f:
 			k, v = line.rstrip().split('\t')
 			t[k] = v
@@ -64,22 +64,18 @@ def get_middle_chinese_text(s, t, sp = ' '):
 			l += [v]
 	return sp.join(l)
 
-dict_qimyonhmieuzsjyt = load_dict('qimyonhmieuzsjyt')
 dict_kyonh = load_dict('kyonh')
 dict_unt = load_dict('unt')
 dict_tupa = load_dict('tupa')
 
-get_qimyonhmieuzsjyt_list = lambda s: get_middle_chinese_list(s, dict_qimyonhmieuzsjyt)
 get_kyonh_list = lambda s: get_middle_chinese_list(s, dict_kyonh)
 get_unt_list = lambda s: get_middle_chinese_list(s, dict_unt)
 get_tupa_list = lambda s: get_middle_chinese_list(s, dict_tupa)
 
-get_qimyonhmieuzsjyt = lambda s: get_middle_chinese(s, dict_qimyonhmieuzsjyt)
 get_kyonh = lambda s: get_middle_chinese(s, dict_kyonh)
 get_unt = lambda s: get_middle_chinese(s, dict_unt, '[%s]')
 get_tupa = lambda s: get_middle_chinese(s, dict_tupa)
 
-get_qimyonhmieuzsjyt_text = lambda s: get_middle_chinese_text(s, dict_qimyonhmieuzsjyt)
 get_kyonh_text = lambda s: get_middle_chinese_text(s, dict_kyonh)
 get_unt_text = lambda s: get_middle_chinese_text(s, dict_unt, '.')
 get_tupa_text = lambda s: get_middle_chinese_text(s, dict_tupa)

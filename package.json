@@ -2,7 +2,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "postinstall": "python preprocess.py && node preprocess.js"
+    "postinstall": "node preprocess.js"
   },
   "devDependencies": {
     "qieyun": "^0.13.5",
