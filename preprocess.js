@@ -56,8 +56,8 @@ function compareFullUnicode(x, y) {
     if (nx.done && ny.done) {
       return 0;
     }
-    const cx = nx.done ? -1 : nx.value.codePointAt(0);
-    const cy = ny.done ? -1 : ny.value.codePointAt(0);
+    const cx = nx.done ? -1 : /** @type {number} */ (nx.value.codePointAt(0));
+    const cy = ny.done ? -1 : /** @type {number} */ (ny.value.codePointAt(0));
     const diff = cx - cy;
     if (diff) {
       return diff;
@@ -181,10 +181,13 @@ async function generate(name, conv) {
   );
 }
 
+/** @type {(地位: 音韻地位) => string} */
+const derivePos = 地位 => 地位.描述;
 const deriveTupa = tupa.schema({ 模式: "寬鬆" });
 
 /** @type {[string, (描述: string) => string][]} */
 const schemas = [
+  ["pos", makeConverter(derivePos, { 精一侵上: ">精開一侵上" })],
   ["tupa", makeConverter(deriveTupa, { 精一侵上: ">tsoimq" })],
   ["kyonh", makeConverter(kyonh, { 精一侵上: "=莊侵上" })],
   ["unt", makeConverter(unt, { 精一侵上: "=精三侵上" })],

@@ -5,8 +5,8 @@ from os import path
 
 here = path.abspath(path.dirname(__file__))
 
-if not path.exists(path.join(here, 'src/ToMiddleChinese/dict/zyenpheng.dict.qimyonhmieuzsjyt.yaml')):
-	raise Exception('Please run preprocess.py first.')
+if not path.exists(path.join(here, 'src/ToMiddleChinese/dict/pos.dict.yaml')):
+	raise Exception('Please run preprocess.js by `npm ci` first.')
 
 with open(path.join(here, 'README.md')) as f:
 	long_description = f.read()
@@ -40,7 +40,7 @@ setup(
 		'Programming Language :: Python :: 3.10',
 		'Programming Language :: Python :: 3.11'
 	],
-	keywords='chinese cantonese nlp natural-language-processing',
+	keywords='chinese middle-chinese linguistics nlp natural-language-processing',
 	packages=find_packages('src'),
 	package_dir={'': 'src'},
 	package_data={
