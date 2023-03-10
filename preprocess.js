@@ -37,7 +37,7 @@ function download(url, path) {
       }
     });
   });
-};
+}
 
 // Sorting
 

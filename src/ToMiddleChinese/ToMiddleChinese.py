@@ -3,6 +3,7 @@
 from opencc import OpenCC
 from os import path
 import pygtrie
+import utils
 
 here = path.abspath(path.dirname(__file__))
 
@@ -48,7 +49,7 @@ def get_middle_chinese_list_inner(s, t):
 def get_middle_chinese_list(s, t):
 	res = []
 	for k in jieba.cut(s):
-		res.extend(get_middle_chinese_list_inner(k, t))
+		res += get_middle_chinese_list_inner(k, t)
 	return res
 
 def get_middle_chinese(s, t, f = '(%s)'):
@@ -57,29 +58,22 @@ def get_middle_chinese(s, t, f = '(%s)'):
 		l += k + (f % v if v else '')
 	return l
 
-def get_middle_chinese_text(s, t, sp = ' '):
-	l = []
-	for k, v in get_middle_chinese_list(s, t):
-		if v:
-			l += [v]
-	return sp.join(l)
-
 dict_pos = load_dict('pos')
+dict_tupa = load_dict('tupa')
 dict_kyonh = load_dict('kyonh')
 dict_unt = load_dict('unt')
-dict_tupa = load_dict('tupa')
 
 get_pos_list = lambda s: get_middle_chinese_list(s, dict_pos)
+get_tupa_list = lambda s: get_middle_chinese_list(s, dict_tupa)
 get_kyonh_list = lambda s: get_middle_chinese_list(s, dict_kyonh)
 get_unt_list = lambda s: get_middle_chinese_list(s, dict_unt)
-get_tupa_list = lambda s: get_middle_chinese_list(s, dict_tupa)
 
-get_pos = lambda s: get_middle_chinese(s, dict_pos)
+get_pos = lambda s: get_middle_chinese(s, dict_pos, '（%s）')
+get_tupa = lambda s: get_middle_chinese(s, dict_tupa)
 get_kyonh = lambda s: get_middle_chinese(s, dict_kyonh)
 get_unt = lambda s: get_middle_chinese(s, dict_unt, '[%s]')
-get_tupa = lambda s: get_middle_chinese(s, dict_tupa)
 
-get_pos_text = lambda s: get_middle_chinese_text(s, dict_pos)
-get_kyonh_text = lambda s: get_middle_chinese_text(s, dict_kyonh)
-get_unt_text = lambda s: get_middle_chinese_text(s, dict_unt, '.')
-get_tupa_text = lambda s: get_middle_chinese_text(s, dict_tupa)
+get_pos_text = lambda s: utils.format_chinese_text(s, get_pos_list)
+get_tupa_text = lambda s: utils.format_romanization_text(s, get_tupa_list)
+get_kyonh_text = lambda s: utils.format_romanization_text(s, get_kyonh_list)
+get_unt_text = lambda s: utils.format_ipa_text(s, get_unt_list)
