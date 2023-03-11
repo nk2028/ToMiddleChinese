@@ -3,7 +3,10 @@
 from opencc import OpenCC
 from os import path
 import pygtrie
-import utils
+if __package__:
+	from . import utils
+else:
+	import utils
 
 here = path.abspath(path.dirname(__file__))
 
